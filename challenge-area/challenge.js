@@ -1,11 +1,10 @@
 //Good luck! Maybe start by making that fetch request ;)
-const DATA_URL = 'https://opentdb.com/api.php?amount=10&category=18';
-
-const getData = (url)=>{
- return fetch(DATA_URL)
- .catch(e => console.log(e))
- .then(res => res.json())
- .then(data => data.results);
+const getData = () => {
+  const DATA_URL = 'https://opentdb.com/api.php?amount=10&category=18';
+  return fetch(DATA_URL)
+  .catch(e => console.log(e))
+  .then(res => res.json())
+  .then(data => data.results);
 }
 
 getData()

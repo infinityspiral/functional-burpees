@@ -4,6 +4,7 @@ fetch(BASE_URL)
 .then(data => data.json())
 .then(data => data.results)
 .then(results => {
+
   console.log('TASK: 1');
   const cleanQuotes = results.map(result => {
     const matcher = new RegExp(/&quot;, '\"'/g);
@@ -15,9 +16,11 @@ fetch(BASE_URL)
     }
   })
   console.log(cleanQuotes);
+
   console.log('TASK: 2');
   const easyQuestions = cleanQuotes.filter(result => result.difficulty === 'easy');
   console.log(easyQuestions);
+
   console.log('TASK: 3');
   const sortedDifficulty = cleanQuotes.map(result => {
     let difficultyNum = 0;
@@ -31,6 +34,7 @@ fetch(BASE_URL)
   })
   .sort((a,b) => a.difficultyNum > b.difficultyNum);
   console.log(sortedDifficulty);
+
   console.log('TASK: 4');
   const questionTotals = {
     easy: sortedDifficulty.filter(result => result.difficultyNum===0).length,
@@ -38,8 +42,10 @@ fetch(BASE_URL)
     hard: sortedDifficulty.filter(result => result.difficultyNum===2).length
   }
   console.log(questionTotals);
+
   console.log('TASK: 5');
   console.log(cleanQuotes.every(result => result.category === 'Science: Computers'))
+
   console.log('BONUS');
   const sortedByChoiceTypeMedium = cleanQuotes.filter(result => {
     return result.difficulty === 'medium'

@@ -47,9 +47,8 @@ fetch(BASE_URL)
   console.log(cleanQuotes.every(result => result.category === 'Science: Computers'))
 
   console.log('BONUS');
-  const sortedByChoiceTypeMedium = cleanQuotes.filter(result => {
-    return result.difficulty === 'medium'
-  })
+  const sortedByChoiceTypeMedium = cleanQuotes
+  .filter(result => result.difficulty === 'medium')
   .sort((a,b) => a.type > b.type)
   console.log(sortedByChoiceTypeMedium);
 })
